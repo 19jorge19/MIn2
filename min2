@@ -1,0 +1,29 @@
+//package personal_projects;
+
+import java.util.Scanner;
+
+public class Cap {
+	public static void main(String[] args) {
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter a sentence: ");
+            String inputSentence = scanner.nextLine();
+            scanner.close();
+            String capitalizedSentence = capitalizeWords(inputSentence);
+            System.out.println("Capitalized sentence: " + capitalizedSentence);
+        } catch (Exception e) {
+            System.out.println("Error try again later " + e.getMessage());
+        }
+    }
+
+    private static String capitalizeWords(String sentence) {
+        StringBuilder result = new StringBuilder();
+        String[] words = sentence.split(" ");
+        for (String word : words) {
+            result.append(Character.toUpperCase(word.charAt(0)))
+                  .append(word.substring(1))
+                  .append(" ");
+        }
+        return result.toString().trim();
+    }
+}
